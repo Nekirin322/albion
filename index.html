@@ -1,9 +1,114 @@
-<htlm>
-   <body>
-     <h1>1111</h1>
-    </body>
+<!doctype html>
+<html lang="ru">
 
-<script>
- alert("111111!")
+<head>
+  <meta charset="UTF-8" />
+  <title>Исследование локуса контроля</title>
+  
+  <style>
+		@import url('http://fonts.googleapis.com/css?family=Open+Sans:400,600,700');
+
+		*, *:before, *:after {margin: 0; padding: 0; box-sizing: border-box;}
+		body {background: #2F2556; color: #B9B5C7; font: 14px 'Open Sans', sans-serif;}
+
+		.top { padding-right: 20px; background: #261F41; text-align: right; }
+		a { color: rgba(255,255,255,0.6); text-transform: uppercase; text-decoration: none; line-height: 42px; }
+
+		h1 {padding: 50px 0; font-weight: 400; text-align: center;}
+		
+		.main {margin: 0 auto; max-width: 500px;}
+		.main .quizsection {margin-bottom: 20px;}
+ </style>
+ 
+</head>
+<body>
+<h1>Исследование локуса контроля </h1>
+
+
+<section class="main">
+<form name="quiz" action="javascript:check();" class="quizform">
+
+
+<div class="quizsection">
+
+
+	<h2>Вопрос №1</h2>
+	
+	<div class="answer">
+		<input name="q1" value="value2" id="value1" type="radio" checked="checked" /> Дети попадают в беду потому, что родители слишком часто их наказывают
+	</div>
+
+	<div class="answer">
+		<input name="q1" value="value1" id="value2" type="radio" />  В наше время неприятности происходят с детьми чаще всего потому, что родители слишком мягко относятся к ним.	
+	</div> 	
+
+</div>
+
+
+<div class="quizsection">
+
+	<h2>Вопрос №2</h2>
+
+	<div class="answer">
+		<input name="q2" value="value1" id="value1" type="radio" checked="checked" /> Многие неудачи происходят от невезения. 
+	</div>
+
+	<div class="answer">
+		<input name="q2" value="value2" id="value2" type="radio" />  Неудачи людей являются результатом их собственных ошибок. 
+	</div>
+
+</div>
+
+
+<div class="quizsection">
+
+	<h2>Вопрос №3</h2>
+
+	<div class="answer">
+		<input name="q3" value="value1" id="value1" type="radio" checked="checked" /> Одна из главных причин, почему совершаются аморальные поступки, состоит в том, что окружающие мирятся с ними. 
+	</div>
+
+	<div class="answer">
+		<input name="q3" value="value1" id="value2" type="radio" />  Аморальные поступки будут происходить всегда, как бы усердно окружающие не пытались их предотвратить. 
+	</div>
+</div>
+
+
+<input value="Отправить" type="submit" /> <input value="Сброс" type="reset" />
+</form>
+</section>
+
+
+<script type="text/javascript">
+function check()
+{
+    var inp = document.getElementsByName('q1');
+    for (var i = 0; i < inp.length; i++) {
+        if (inp[i].type == "radio" && inp[i].checked) {
+            //alert("selected: " + inp[i].value);
+        }
+	}	
+{
+    var inp = document.getElementsByName('q2');
+    for (var i = 0; i < inp.length; i++) {
+        if (inp[i].type == "radio" && inp[i].checked) {
+            //alert("selected: " + inp[i].value);
+        }
+	}
+}
+
+	var inp = document.getElementsByName('q3');
+    for (var i = 0; i < inp.length; i++) {
+        if (inp[i].type == "radio" && inp[i].checked) {
+           // alert("selected: " + inp[i].value);
+        }
+    }
+}
+
+
 </script>
-</htlm>
+
+
+
+</body>
+</html>
