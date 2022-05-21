@@ -26,7 +26,7 @@
 
 
 <section class="main">
-<form name="quiz" action="javascript:check();" class="quizform">
+<form name="quiz" onsubmit="check();return false" class="quizform">
 
 
 <div class="quizsection">
@@ -35,11 +35,11 @@
 	<h2>Вопрос №1</h2>
 	
 	<div class="answer">
-		<input name="q1" value="value2" id="value1" type="radio" checked="checked" /> Дети попадают в беду потому, что родители слишком часто их наказывают
+		<input name="q1" value="value1" id="value1" type="radio" checked="checked" /> Дети попадают в беду потому, что родители слишком часто их наказывают
 	</div>
 
 	<div class="answer">
-		<input name="q1" value="value1" id="value2" type="radio" />  В наше время неприятности происходят с детьми чаще всего потому, что родители слишком мягко относятся к ним.	
+		<input name="q1" value="value2" id="value2" type="radio" />  В наше время неприятности происходят с детьми чаще всего потому, что родители слишком мягко относятся к ним.	
 	</div> 	
 
 </div>
@@ -69,7 +69,7 @@
 	</div>
 
 	<div class="answer">
-		<input name="q3" value="value1" id="value2" type="radio" />  Аморальные поступки будут происходить всегда, как бы усердно окружающие не пытались их предотвратить. 
+		<input name="q3" value="value2" id="value2" type="radio" />  Аморальные поступки будут происходить всегда, как бы усердно окружающие не пытались их предотвратить. 
 	</div>
 </div>
 
@@ -79,36 +79,62 @@
 </section>
 
 
-<script type="text/javascript">
-function check()
-{
-    var inp = document.getElementsByName('q1');
-    for (var i = 0; i < inp.length; i++) {
-        if (inp[i].type == "radio" && inp[i].checked) {
-            //alert("selected: " + inp[i].value);
-        }
-	}	
-{
-    var inp = document.getElementsByName('q2');
-    for (var i = 0; i < inp.length; i++) {
-        if (inp[i].type == "radio" && inp[i].checked) {
-            //alert("selected: " + inp[i].value);
-        }
+<script>
+	var result;
+	function check()
+	{
+		console.log("dfrc");
+		var question;
+		var value1;
+		var value2;
+
+
+		question = 1;
+		value1 = 0;
+		value2 = 0;
+
+
+		result = "";
+
+		var choice;
+
+		for (question = 1; question <= 3 ; question++) {
+
+   			var q = document.forms['quiz'].elements['q'+question];
+
+	  			for (var i = 0; i < q.length; i++) {
+		 			if (q[i].checked) {
+						choice = q[i].value;
+		 			}
+	  			}
+
+	  		if (choice == "value1") {
+		 		value1++;
+	 		}
+
+	  		else if (choice == "value2") {
+		 	value2++;
+	  		}
+   		}
+
+	if (value1 > value2) {
+
+		// интернальный 
+		result = "2a";
 	}
+
+	else if (value2 > value1) {
+
+		// экстернальный
+		result = "3a";
+	}
+
+	else {
+	result = "404";
+	}
+
+	window.location = result + '.html';
 }
-
-	var inp = document.getElementsByName('q3');
-    for (var i = 0; i < inp.length; i++) {
-        if (inp[i].type == "radio" && inp[i].checked) {
-           // alert("selected: " + inp[i].value);
-        }
-    }
-}
-
-
 </script>
-
-
-
 </body>
 </html>
